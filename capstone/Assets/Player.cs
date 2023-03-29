@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
 
-    [Range(0.1f, 1f)]
-    [SerializeField] private float fireRate = 0.5f;
+    [Range(0.001f, 1f)]
+    [SerializeField] public float fireRate = 0.0005f;
     private Rigidbody2D rb;
     private float mx;
     private float my;
