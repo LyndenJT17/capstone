@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform firingPoint;
 
     [Range(0.001f, 1f)]
-    [SerializeField] public float fireRate = 0.0005f;
+    [SerializeField] public float fireRate = 0.5f;
+
     private Rigidbody2D rb;
     private float mx;
     private float my;
@@ -50,6 +51,16 @@ public class Player : MonoBehaviour
     private void Shoot()
     {
         Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            Destroy(gameObject);
+            
+        }
+        
     }
 
 }

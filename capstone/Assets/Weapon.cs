@@ -8,6 +8,23 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public float fireForce = 20f;
 
+    [Range(0.001f, 1f)]
+    [SerializeField] public float fireRate = 0.5f;
+
+    private float fireTimer;
+    void Update()
+    {
+
+        if (Input.GetMouseButton(0) && fireTimer <= 0f)
+        {
+            Fire();
+            fireTimer = fireRate;
+        }
+        else
+        {
+            fireTimer -= Time.deltaTime;
+        }
+    }
     public void Fire()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
