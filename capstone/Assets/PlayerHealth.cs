@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-
-	private float health = 0f;
-	[SerializeField] private float maxHealth = 100f;
+	public int health;
+	public int currentHealth;
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
-        health = maxHealth;
+        currentHealth = health;
     }
 
     // Update is called once per frame
-    public void UpdateHealth(float mod)
+    void Update()
     {
-        health += mod;
-		
-		if (health > maxHealth) {
-		health = maxHealth;
-		} else if (health <= 0f) {
-			health = 0f;
-			Debug.Log("Player Respawn");
+        if (currentHealth <= 0)
+		{
+			Destroy(gameObject);
 		}
     }
+	
+	public void damagePlayer(int damage){
+		currentHealth -= damage;
+	}
 }
