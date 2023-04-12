@@ -9,7 +9,7 @@ public class bullet2 : MonoBehaviour
 
     [Range(1, 10)]
     [SerializeField] private float lifeTime = 3f;
-
+    
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class bullet2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, lifeTime);
     }
-
+    
     private void FixedUpdate()
     {
         rb.velocity = transform.up * speed;
