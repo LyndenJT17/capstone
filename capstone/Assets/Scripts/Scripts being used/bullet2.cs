@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class bullet2 : MonoBehaviour
 {
+    
     [Range(1, 10)]
     [SerializeField] private float speed = 10f;
 
@@ -17,7 +18,7 @@ public class bullet2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, lifeTime);
     }
-    
+   
     private void FixedUpdate()
     {
         rb.velocity = transform.up * speed;
