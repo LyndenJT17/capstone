@@ -27,5 +27,9 @@ public class BulletDamage : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealth>().damageEnemy(bulletDamage);
             Destroy(gameObject);
         }
+        if (other.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
+        }
     }
 }
