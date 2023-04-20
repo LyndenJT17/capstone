@@ -20,7 +20,7 @@ public class playercontroller : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            weapon.Fire();
+//            weapon.Fire();
         }
 
         moveDirection = new Vector2(moveX, moveY).normalized;
