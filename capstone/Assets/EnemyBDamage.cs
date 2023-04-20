@@ -22,5 +22,6 @@ public class EnemyBDamage : MonoBehaviour
 			other.gameObject.GetComponent<PlayerHealth>().damagePlayer(bulletDamage);
 			Destroy(gameObject);
 		}
+		
 	}
 }

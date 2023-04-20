@@ -2969,6 +2969,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7456139312597359294, guid: dc993cc15b1d52b47b08d0b7029da4a8, type: 3}
+      propertyPath: rotateSpeed
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456139312597359294, guid: dc993cc15b1d52b47b08d0b7029da4a8, type: 3}
       propertyPath: distanceToStop
       value: 11.99
       objectReference: {fileID: 0}
