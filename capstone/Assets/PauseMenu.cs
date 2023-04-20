@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isPaused;
-    
+    public Weapon myWeapon;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,8 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
+			
+			
         }
     }
 
@@ -42,5 +44,13 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
     }
+	public void upgrade(){
+	if (myWeapon.fireRate > .1f)
+		myWeapon.fireRate -= .1f;
+		else if (myWeapon.fireRate <= .1f) {
+		myWeapon.fireRate -= .025f;
+	}
+	}
+	
     
 }
