@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public static bool isPaused;
-    
+    public Weapon myWeapon;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (myWeapon.fireRate < .1f)
+            myWeapon.fireRate = .05f;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -26,6 +28,8 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
+
+
         }
     }
 
@@ -37,10 +41,21 @@ public class PauseMenu : MonoBehaviour
     }
     public void ResumeGame()
     {
-       
+
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
-    
+    public void upgrade()
+    {
+            if (myWeapon.fireRate < .1f)
+                myWeapon.fireRate = .05f;
+            else
+            {
+                myWeapon.fireRate -= .1f;
+            }
+        
+    }
+
+
 }

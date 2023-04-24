@@ -10,7 +10,7 @@ public class playercontroller : MonoBehaviour
 
     Vector2 moveDirection;
     Vector2 mousePosition;
-    
+
 
     // Update is called once per frame
     void Update()
@@ -20,7 +20,7 @@ public class playercontroller : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            weapon.Fire();
+            //            weapon.Fire();
         }
 
         moveDirection = new Vector2(moveX, moveY).normalized;

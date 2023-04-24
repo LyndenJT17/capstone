@@ -9,9 +9,15 @@ public class Weapon : MonoBehaviour
     public float fireForce = 20f;
 
     [Range(0.001f, 1f)]
-    [SerializeField] public float fireRate = 0.5f;
+    [SerializeField] public float fireRate = 0.500f;
 
     public float fireTimer;
+
+    void Start()
+    {
+        fireTimer = fireRate;
+    }
+
     void Update()
     {
 
