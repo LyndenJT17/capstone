@@ -135,4 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 2.5
-  bulletDamage: 20
+  criticalStrikeChance: 1
+  bulletDamage: 10

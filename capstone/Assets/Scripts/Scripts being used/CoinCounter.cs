@@ -6,8 +6,9 @@ public class CoinCounter : MonoBehaviour
 {
     public static CoinCounter instance;
     public TMP_Text coinText;
-    public int currentCoins = 0;
-
+    public TMP_Text upCost;
+    public double currentCoins = 0;
+    public PauseMenu pMenu;
     void Awake()
     {
         instance = this;
@@ -16,6 +17,11 @@ public class CoinCounter : MonoBehaviour
     void Start()
     {
         coinText.text = "COINS: " + currentCoins.ToString();
+        upCost.text = "Amount needed to upgrade: " + pMenu.upgradeCost.ToString();
+    }
+    void Update()
+    {
+        upCost.text = "Amount needed to upgrade: " + pMenu.upgradeCost.ToString();
     }
 
     // Update is called once per frame
