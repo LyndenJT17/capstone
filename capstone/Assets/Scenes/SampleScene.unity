@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 298746894}
   - component: {fileID: 298746900}
   - component: {fileID: 298746901}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1912,7 +1912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1483325762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: firepoint
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -2210,7 +2210,7 @@ GameObject:
   - component: {fileID: 1666326046}
   - component: {fileID: 1666326047}
   - component: {fileID: 1666326045}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
