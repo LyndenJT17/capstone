@@ -11,9 +11,9 @@ public class EnemyShooting : MonoBehaviour
     public float spreadAngle = 15f; // Angle at which the bullets will spread
     public Transform target; // Target for the enemy to aim at
     public float rotationSpeed = 5f; // Speed at which the enemy rotates towards the target
-
+    public float moveSpeed = 5f; // Speed at which the enemy moves towards the target
     private float nextFireTime; // Time when the next shot can be fired
-
+    public float movementSpeed = 5f;
     void Update()
     {
         if (Time.time > nextFireTime)
@@ -27,6 +27,10 @@ public class EnemyShooting : MonoBehaviour
 
             // Rotate towards the target with the given rotation speed
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            // Move towards the target with the given movement speed
+            Vector3 movementDirection = targetDirection.normalized;
+            transform.position += movementDirection * movementSpeed * Time.deltaTime;
 
             // Spawn 3 bullets with different directions based on the spread angle
             Quaternion spreadAngle1 = Quaternion.AngleAxis(spreadAngle, Vector3.forward);

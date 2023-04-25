@@ -9,7 +9,7 @@ public class EnemyBDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -32,5 +32,6 @@ public class EnemyBDamage : MonoBehaviour
             other.gameObject.GetComponent<PlayerHealth>().damagePlayer(bulletDamage);
             Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
