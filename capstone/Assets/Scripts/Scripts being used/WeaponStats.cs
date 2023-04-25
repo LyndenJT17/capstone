@@ -6,24 +6,45 @@ using TMPro;
 public class WeaponStats : MonoBehaviour
 {
     [SerializeField] public TMP_Text attackText;
-
-    public Weapon w;
-
-    void Awake()
+    [SerializeField] public TMP_Text fireforceText;
+    [SerializeField] public TMP_Text movementText;
+    private void Awake()
     {
-        w = GetComponent<Weapon>();
+        UpdateAttackText();
+        UpdateFireforceText();
+        UpdateMovementText();
+    }
 
-        if (attackText != null)
+    private void Update()
+    {
+        UpdateAttackText();
+        UpdateFireforceText();
+        UpdateMovementText();
+    }
+
+    private void UpdateAttackText()
+    {
+        Weapon w = FindObjectOfType<Weapon>();
+        if (w != null && attackText != null)
         {
             attackText.text = $"Attack rate: {w.fireRate.ToString()}";
         }
     }
 
-    private void Update()
+    private void UpdateFireforceText()
     {
-        if (w != null && attackText != null)
+        Weapon w = FindObjectOfType<Weapon>();
+        if (w != null && fireforceText != null)
         {
-            attackText.text = $"Attack rate: {w.fireRate.ToString()}";
+            fireforceText.text = $"Bullet Speed: {w.fireForce.ToString()}";
+        }
+    }
+    private void UpdateMovementText()
+    {
+        playercontroller p = FindObjectOfType<playercontroller>();
+        if (p != null && movementText != null)
+        {
+            movementText.text = $"Movement Speed: {p.moveSpeed.ToString()}";
         }
     }
 }
