@@ -20,11 +20,16 @@ public class playercontroller : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            //            weapon.Fire();
+            // weapon.Fire();
         }
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        {
+            moveDirection *= .4f;
+        }
     }
 
     private void FixedUpdate()

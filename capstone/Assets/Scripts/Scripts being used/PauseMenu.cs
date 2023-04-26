@@ -86,18 +86,14 @@ public class PauseMenu : MonoBehaviour
     {
         if (bank.currentCoins >= upgradeCost)
         {
-            if (player.moveSpeed >= 8f)
-                player.moveSpeed = 8f;
-            else if (player.moveSpeed >= 7f)
+            if (player.moveSpeed >= 5f)
+                player.moveSpeed = 5f;
+            else 
             {
                 player.moveSpeed += .5f;
                 updateMoney();
             }
-            else
-            {
-                player.moveSpeed += 1f;
-                updateMoney();
-            }
+            
         }
     }
     public void upgradeDamage()
