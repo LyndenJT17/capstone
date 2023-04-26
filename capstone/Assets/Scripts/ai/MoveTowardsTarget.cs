@@ -10,6 +10,10 @@ public class MoveTowardsTarget : MonoBehaviour
 
     void Update()
     {
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         // Calculate the direction towards the target
         Vector2 direction = target.position - transform.position;
 

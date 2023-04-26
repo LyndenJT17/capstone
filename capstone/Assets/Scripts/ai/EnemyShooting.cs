@@ -18,6 +18,10 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         // Check if the distance between the enemy and the target is less than the shooting distance
         if (Vector3.Distance(transform.position, target.position) <= shootingDistance && Time.time > nextFireTime)
         {
