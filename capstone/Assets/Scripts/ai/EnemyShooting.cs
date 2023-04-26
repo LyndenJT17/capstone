@@ -14,9 +14,12 @@ public class EnemyShooting : MonoBehaviour
     public float moveSpeed = 5f; // Speed at which the enemy moves towards the target
     private float nextFireTime; // Time when the next shot can be fired
     public float movementSpeed = 5f;
+    public float shootingDistance = 5f; // Maximum distance at which the enemy can shoot
+
     void Update()
     {
-        if (Time.time > nextFireTime)
+        // Check if the distance between the enemy and the target is less than the shooting distance
+        if (Vector3.Distance(transform.position, target.position) <= shootingDistance && Time.time > nextFireTime)
         {
             // Set the next fire time based on the fire rate
             nextFireTime = Time.time + 1f / fireRate;

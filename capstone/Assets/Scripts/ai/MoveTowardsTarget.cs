@@ -6,11 +6,15 @@ public class MoveTowardsTarget : MonoBehaviour
 {
     public Transform target;
     public float movementSpeed = 5f;
+    public float maxDistance = 10f; // Maximum distance to target for movement
 
     void Update()
     {
         // Calculate the direction towards the target
         Vector2 direction = target.position - transform.position;
+
+        // Check if within distance to target before moving
+        if (direction.magnitude > maxDistance) return;
 
         // Calculate the movement vector
         Vector2 movement = direction.normalized * movementSpeed * Time.deltaTime;
