@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
-    // Start is called before the first frame update
     public Transform target;
     public float speed = 3f;
     public float rotateSpeed = 0.0025f;
@@ -17,13 +16,13 @@ public class RangedEnemy : MonoBehaviour
     private float timeToFire;
 
     public Transform firingPoint;
+    public float bulletSpeed = 10f; // new variable for bullet speed
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!target)
@@ -37,7 +36,6 @@ public class RangedEnemy : MonoBehaviour
 
         if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToShoot)
         {
-            
             Shoot();
         }
     }
@@ -46,8 +44,8 @@ public class RangedEnemy : MonoBehaviour
     {
         if (timeToFire <= 0f)
         {
-            Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-            Debug.Log("Shoot");
+            GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+            bullet.GetComponent<Rigidbody2D>().velocity = transform.up * bulletSpeed; // set bullet speed
             timeToFire = fireRate;
         }
         else
@@ -55,17 +53,20 @@ public class RangedEnemy : MonoBehaviour
             timeToFire -= Time.deltaTime;
         }
     }
+
     private void FixedUpdate()
     {
-        if (target != null) { 
-        if (Vector2.Distance(target.position, transform.position) <= distanceToStop)
+        if (target != null)
         {
-            rb.velocity = transform.up * speed;
+            if (Vector2.Distance(target.position, transform.position) <= distanceToStop)
+            {
+                rb.velocity = transform.up * speed;
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        } }
     }
 
     private void RotateTowardsTarget()
@@ -75,6 +76,7 @@ public class RangedEnemy : MonoBehaviour
         Quaternion q = Quaternion.Euler(new Vector3(0, 0, angle));
         transform.localRotation = Quaternion.Slerp(transform.localRotation, q, rotateSpeed);
     }
+
     private void GetTarget()
     {
         if (GameObject.FindGameObjectWithTag("Player"))
