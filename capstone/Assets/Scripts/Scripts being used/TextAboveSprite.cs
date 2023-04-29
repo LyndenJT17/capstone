@@ -12,7 +12,7 @@ public class TextAboveSprite : MonoBehaviour
     private Text text;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         text = GetComponent<Text>();
         if (text != null)
@@ -23,7 +23,7 @@ public class TextAboveSprite : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (target != null)
         {

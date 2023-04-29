@@ -164,6 +164,7 @@ MonoBehaviour:
   distanceToStop: 7.08
   fireRate: 2
   firingPoint: {fileID: 4459804617792606338}
+  bulletSpeed: 10
 --- !u!50 &4459804618918326629
 Rigidbody2D:
   serializedVersion: 4
